@@ -1,3 +1,5 @@
+![person_jumping](https://www.google.com/url?sa=i&url=https%3A%2F%2Fdepositphotos.com%2Fstock-photos%2Fparachute-jump.html&psig=AOvVaw1d3KPXW5Bbp9wucmuEuPOg&ust=1643862735508000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKDO_quY4PUCFQAAAAAdAAAAABAF)
+
 # Jumper
 Jumper is a game in which the player seeks to solve a puzzle by guessing the letters of a secret word one at a time. 
 
