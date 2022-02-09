@@ -40,4 +40,3 @@ The project files are organized as follows:
 - Aaron Eardley Assignment - Create class to display jumper
 - MyeongSeon Lee Assignment - Create class for catching wrong input for "guess letter"
 - Andrés Perez Assignment - Create class to handle secret word
-- Andres Rodas Cassagne Assignment - Create class for giving a clue
