@@ -1,12 +1,15 @@
 from wordHandler import ProcessWord
 from jumper import Jumper
+from winner import Winner
 
-#Directs the order of the game play. Calls and imports the other classes
+# Directs the order of the game play. Calls and imports the other classes
+
 
 class Director:
 
     def __init__(self):
         self._jumper = Jumper()
+        self.winning = Winner()
         self.word = ProcessWord("michelle")
         """
         Maybe we can create a word bank where a 
@@ -29,5 +32,5 @@ class Director:
             count += 1
 
     def _print_jumper(self, wrong_guesses):
-        #prints the jumper with the argument for the number of wrong guesses
+        # prints the jumper with the argument for the number of wrong guesses
         self._jumper.draw_jumper(wrong_guesses)
