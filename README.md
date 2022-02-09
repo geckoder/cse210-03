@@ -1,38 +1,42 @@
 ![image](https://user-images.githubusercontent.com/84346969/152093881-697c35a1-972d-4c6a-afa8-d8cf8c326c21.png)
 
 # Jumper
-Jumper is a game in which the player seeks to solve a puzzle by guessing the letters of a secret word one at a time. 
+
+Jumper is a game in which the player seeks to solve a puzzle by guessing the letters of a secret word one at a time.
 
 ## Getting Started
+
 ---
-Make sure you have Python 3.8.0 or newer installed and running on your machine. Open a terminal and 
-browse to the project's root folder. Start the program by running the following command.
-```
-python3 jumper
-```
-You can also run the program from an IDE like Visual Studio Code. Start your IDE and open the 
-project folder. Select the main module inside the jumper folder and click the "run" button.
+
+## Run the program from an IDE like Visual Studio Code. Start your IDE and open the main.py file. Click the "run" button.
 
 ## Project Structure
+
 ---
-The project files and folders are organized as follows:
+
+The project files are organized as follows:
+
 ```
-root                    (project root folder)
-+-- jumper                (source code for game)
-  +-- game              (specific classes)
-  +-- __main__.py       (program entry point)
+
++-- wordHandler.py              (class that handles words)
++-- main.py       (program entry point, run this to play)
++-- director.py (imports all the other classes and directs the flow of the game)
 +-- README.md           (general info)
++-- jumper.py (class that draws jumper)
 ```
 
 ## Required Technologies
+
 ---
-* Python 3.8.0
+
+- Python 3.8.0
 
 ## Authors
+
 ---
-* Michelle Caceres
-* Emily Castillo Sandoval
-* Aaron Eardley
-* MyeongSeon Lee
-* Andrés Perez 
-* Andres Rodas Cassagne 
+
+- Michelle Caceres Assignment- Make Repository, Make sure main functions well once everyone has made their classes
+- Emily Castillo Sandoval Assignment - Create class to handle win/lose condition
+- Aaron Eardley Assignment - Create class to display jumper
+- MyeongSeon Lee Assignment - Create class for catching wrong input for "guess letter"
+- Andrés Perez Assignment - Create class to handle secret word
