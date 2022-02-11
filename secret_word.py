@@ -15,7 +15,7 @@ class  SecretWord:
         print("     2. Colors")
         print("     3. Book of Mormon Characters")
         print()
-        self.user_choose = int(input("Select a topic: "))
+        self.user_choose = int(input("Select a topic: (1, 2, or 3)"))
         if self.user_choose == 1:
             self.list_words = ["cat", "dog", "parrot", "tucan", "tiger", "horse"]
             print()
