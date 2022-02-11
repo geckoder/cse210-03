@@ -36,7 +36,8 @@ class  SecretWord:
         
         self.lenght_list = len(self.list_words)     #Find the lenght of list 
         self.random_word = self.list_words[random.randint(0, self.lenght_list-1)]
-
+        print(self.random_word)
+        
         return self.random_word
 
 

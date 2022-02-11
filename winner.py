@@ -6,8 +6,8 @@ from jumper import Jumper
 class Winner():
     "Determines if player wins or loses the Jumper Game"
 
-    def __init__(self):
-        self.complete_word = ProcessWord()
+    def __init__(self, secretWord):
+        self.complete_word = ProcessWord(secretWord)
         self.right_word = SecretWord()
         self.parachute = Jumper()
 
