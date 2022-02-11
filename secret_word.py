@@ -5,7 +5,7 @@ class  SecretWord:
     def __init__(self):
         
         self.list_words = []
-        self.lenght_list = 0
+        self.length_list = 0
         self.user_choose = ""
     
     def type_word(self):
@@ -34,8 +34,8 @@ class  SecretWord:
     
     def get_random_word (self):    #Function get a random word from a list
         
-        self.lenght_list = len(self.list_words)     #Find the lenght of list 
-        self.random_word = self.list_words[random.randint(0, self.lenght_list-1)]
+        self.length_list = len(self.list_words)     #Find the length of list 
+        self.random_word = self.list_words[random.randint(0, self.length_list-1)]
         print(self.random_word)
         
         return self.random_word
