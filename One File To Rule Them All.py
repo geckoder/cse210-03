@@ -180,7 +180,6 @@ class ProcessWord():
             if character == guess:
                 wrongGuess = False
             count += 1
-        print(wrongGuess)
         return wrongGuess
 
 class Winner():
@@ -211,10 +210,10 @@ jumperCount = 0
 jumperDisplay.draw_jumper(jumperCount)
 updatedWordDisplay = wordDisplay.generateInitialWordDisplay()
 count= 0
-while count < 10:
+while count < 5:
     guess = input("Please enter a letter: ")
-    updatedWordDisplay = wordDisplay.updateWordDisplay(updatedWordDisplay, guess)
     jumperDisplay.draw_jumper(jumperCount)
+    updatedWordDisplay = wordDisplay.updateWordDisplay(updatedWordDisplay, guess)
     wrongGuess = wordDisplay.DetermineIfWrongGuess(guess)
     if wrongGuess == True:
         jumperCount += 1
