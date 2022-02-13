@@ -18,11 +18,8 @@ The project files are organized as follows:
 
 ```
 
-+-- wordHandler.py              (class that handles words)
-+-- main.py       (program entry point, run this to play)
-+-- director.py (imports all the other classes and directs the flow of the game)
++-- jumper_game.py      (handles the game)
 +-- README.md           (general info)
-+-- jumper.py (class that draws jumper)
 ```
 
 ## Required Technologies
