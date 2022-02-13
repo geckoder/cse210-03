@@ -1,5 +1,4 @@
 import random
-from this import d
 
 
 class SecretWord:
@@ -13,7 +12,7 @@ class SecretWord:
 
     def type_word(self):
         "Asks the user for a topic"
-        print("Welcome to the Jumper Game")
+        print("Welcome to the Jumper Game!")
         print()
         print("     1. Animals")
         print("     2. Colors")
@@ -200,23 +199,36 @@ class ProcessWord():
         return wrongGuess
 
 
-class Winner():
+class Result():
     "Determines if player wins or loses the Jumper Game"
 
-    def __init__(self):
-        self.right_word = SecretWord()
-        self.complete_word = ProcessWord(secretWord)
-        self.parachute = Jumper()
+    def __init__(self, secret, max_wrong_guesses):
+        self.secret = secret
+        self.max_wrong_guesses = max_wrong_guesses
 
-    def win(self):
-        "Prints statements according to winner or looser condition"
-        # Winner condition
-        if self.complete_word.updateWordDisplay(updatedWordDisplay, guess) == self.right_word.get_random_word():
-            print('You guessed the word! Have a safe landing!')
+    def is_winner(self, word):
+        "Check is player wins"
+        return word == self.secret
 
-        # Looser condition
-        elif self.parachute._list == '  x  ':
-            print('Your parachute is gone! Call the ambulance!')
+    def is_loser(self, wrong_guesses):
+        "Check if player loses"
+        return wrong_guesses == self.max_wrong_guesses
+
+    def check_result(self, word, wrong_guesses):
+        "Prints if player wins or loses"
+        # replaces the space character with an empty string
+        formated_word = word.replace(" ", "")
+        if self.is_winner(formated_word):
+            print()
+            print("You guessed the word! Have a safe landing!")
+            return True
+        elif self.is_loser(wrong_guesses):
+            print()
+            print("Your parachute is gone! Call the ambulance!")
+            return True
+        else:
+            # if player does not win or lose yet
+            return False
 
 
 game = SecretWord()
@@ -227,14 +239,21 @@ wordDisplay = ProcessWord(secretWord)
 jumperCount = 0
 jumperDisplay.draw_jumper(jumperCount)
 updatedWordDisplay = wordDisplay.generateInitialWordDisplay()
+checker = Result(secretWord, 4)
 
-count = 0
-while count < 5:
+while True:
+    print()
     guess = input("Please enter a letter: ")
-    jumperDisplay.draw_jumper(jumperCount)
+    print()
     updatedWordDisplay = wordDisplay.updateWordDisplay(
         updatedWordDisplay, guess)
     wrongGuess = wordDisplay.DetermineIfWrongGuess(guess)
     if wrongGuess == True:
         jumperCount += 1
-    count += 1
+    # display jumper after each guessed letter
+    print()
+    jumperDisplay.draw_jumper(jumperCount)
+
+    # break out of loop if player wins or loses
+    if checker.check_result(updatedWordDisplay, jumperCount):
+        break
