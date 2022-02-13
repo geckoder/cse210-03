@@ -1,16 +1,19 @@
 import random
 from this import d
 
-class  SecretWord:
-     
+
+class SecretWord:
+    "Gets a random word from a topic chosen from the player"
+
     def __init__(self):
-        
+
         self.list_words = []
         self.length_list = 0
         self.user_choose = ""
-    
+
     def type_word(self):
-        print("Welcome to this game")
+        "Asks the user for a topic"
+        print("Welcome to the Jumper Game")
         print()
         print("     1. Animals")
         print("     2. Colors")
@@ -18,30 +21,35 @@ class  SecretWord:
         print()
         self.user_choose = int(input("Select a topic (1, 2, or 3): "))
         if self.user_choose == 1:
-            self.list_words = ["cat", "dog", "parrot", "tucan", "tiger", "horse"]
+            self.list_words = ["cat", "dog",
+                               "parrot", "tucan", "tiger", "horse"]
             print()
             print("You chose 'Animals'")
-        elif self.user_choose == 2: 
-            self.list_words = ["red", "orange", "blue", "black", "white", "purple"]
+        elif self.user_choose == 2:
+            self.list_words = ["red", "orange",
+                               "blue", "black", "white", "purple"]
             print()
             print("You chose 'Colors'")
-        elif self.user_choose ==3:
-            self.list_words = ["moroni", "alma", "mosiah", "jacob", "nephi", "enos"]
+        elif self.user_choose == 3:
+            self.list_words = ["moroni", "alma",
+                               "mosiah", "jacob", "nephi", "enos"]
             print()
             print("You chose 'Book of Mormon Characters'")
         return self.list_words
-          
-            
-    
-    def get_random_word (self):    #Function get a random word from a list
-        
-        self.length_list = len(self.list_words)     #Find the length of list 
-        self.random_word = self.list_words[random.randint(0, self.length_list-1)]
-        print(self.random_word)
-        
+
+    def get_random_word(self):
+        "Function get a random word from a list"
+
+        self.length_list = len(self.list_words)  # Find the length of list
+        self.random_word = self.list_words[random.randint(
+            0, self.length_list-1)]
+        # print(self.random_word)
+
         return self.random_word
 
+
 class Jumper:
+    "Draws jumper with the parachute"
 
     def __init__(self):
         self._jumper_list = ["  ___  ", " /___\ ", " \   / ",
@@ -49,6 +57,7 @@ class Jumper:
         # Sets a list that draws the jumper
 
     def draw_jumper(self, wrong_guesses):
+        "Shows jumper according to right or wrong guesses"
         # takes an argument for wrong_guesses. This is an int
         self._list = self._jumper_list
         for i in range(wrong_guesses, len(self._list)):
@@ -59,14 +68,19 @@ class Jumper:
             # if there are enough bad guesses, his head becomes an x
 
 # Create Class: Handle Secret Word
+
+
 class ProcessWord():
+    "Handles the secret word"
     # Create Method: Set Secret Word Property
+
     def __init__(self, secretWord):
         self.secretWord = secretWord
 
-
     # Create Method: Accept Secret Word And Change Display
-    def generateInitialWordDisplay(self, guess = "none"):
+
+    def generateInitialWordDisplay(self, guess="none"):
+        "Accepts secret word and changes its display"
         # Split Word Into Individual Characters
         splitWordArray = [c for c in self.secretWord]
         # Create Variable To Hold Word Length
@@ -106,12 +120,13 @@ class ProcessWord():
         # Store Word (Single String) In Variable
         return joinedWordString
 
-
     # Create Method: Update Display of Secret Word
+
     def updateWordDisplay(self, updatedWord, guess):
+        "Updates and displays secret word"
         # Split Word Into Individual Characters
         splitWordArray = [c for c in updatedWord]
-        # Create Variable To Hold Iteration (Index) Number 
+        # Create Variable To Hold Iteration (Index) Number
         count = 0
         for character in splitWordArray:
             # Remove Spaces In Word
@@ -153,10 +168,12 @@ class ProcessWord():
         print(joinedWordString)
         # Store Updated Word In Variable
         return joinedWordString
+
     def DetermineIfWrongGuess(self, guess):
+        "Determines if player entered wrong letter, so it does not display"
         # Split Word Into Individual Characters
         splitWordArray = [c for c in self.secretWord]
-        # Create Variable To Hold Iteration (Index) Number 
+        # Create Variable To Hold Iteration (Index) Number
         count = 0
         for character in splitWordArray:
             # Remove Spaces In Word
@@ -182,18 +199,19 @@ class ProcessWord():
             count += 1
         return wrongGuess
 
+
 class Winner():
     "Determines if player wins or loses the Jumper Game"
 
-    def __init__(self, secretWord):
-        self.complete_word = ProcessWord(secretWord)
+    def __init__(self):
         self.right_word = SecretWord()
+        self.complete_word = ProcessWord(secretWord)
         self.parachute = Jumper()
 
     def win(self):
         "Prints statements according to winner or looser condition"
         # Winner condition
-        if self.complete_word.secretWord == self.right_word.random_word:
+        if self.complete_word.updateWordDisplay(updatedWordDisplay, guess) == self.right_word.get_random_word():
             print('You guessed the word! Have a safe landing!')
 
         # Looser condition
@@ -209,11 +227,13 @@ wordDisplay = ProcessWord(secretWord)
 jumperCount = 0
 jumperDisplay.draw_jumper(jumperCount)
 updatedWordDisplay = wordDisplay.generateInitialWordDisplay()
-count= 0
+
+count = 0
 while count < 5:
     guess = input("Please enter a letter: ")
     jumperDisplay.draw_jumper(jumperCount)
-    updatedWordDisplay = wordDisplay.updateWordDisplay(updatedWordDisplay, guess)
+    updatedWordDisplay = wordDisplay.updateWordDisplay(
+        updatedWordDisplay, guess)
     wrongGuess = wordDisplay.DetermineIfWrongGuess(guess)
     if wrongGuess == True:
         jumperCount += 1

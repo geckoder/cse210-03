@@ -4,9 +4,9 @@ class ProcessWord():
     def __init__(self, secretWord):
         self.secretWord = secretWord
 
-
     # Create Method: Accept Secret Word And Change Display
-    def generateInitialWordDisplay(self, guess = "none"):
+
+    def generateInitialWordDisplay(self, guess="none"):
         # Split Word Into Individual Characters
         splitWordArray = [c for c in self.secretWord]
         # Create Variable To Hold Word Length
@@ -46,12 +46,12 @@ class ProcessWord():
         # Store Word (Single String) In Variable
         return joinedWordString
 
-
     # Create Method: Update Display of Secret Word
+
     def updateWordDisplay(self, updatedWord, guess):
         # Split Word Into Individual Characters
         splitWordArray = [c for c in updatedWord]
-        # Create Variable To Hold Iteration (Index) Number 
+        # Create Variable To Hold Iteration (Index) Number
         count = 0
         for character in splitWordArray:
             # Remove Spaces In Word
@@ -93,5 +93,3 @@ class ProcessWord():
         print(joinedWordString)
         # Store Updated Word In Variable
         return joinedWordString
-    
-
