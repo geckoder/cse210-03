@@ -18,22 +18,31 @@ class SecretWord:
         print("     2. Colors")
         print("     3. Book of Mormon Characters")
         print()
-        self.user_choose = int(input("Select a topic (1, 2, or 3): "))
-        if self.user_choose == 1:
-            self.list_words = ["cat", "dog",
-                               "parrot", "tucan", "tiger", "horse"]
-            print()
-            print("You chose 'Animals'")
-        elif self.user_choose == 2:
-            self.list_words = ["red", "orange",
-                               "blue", "black", "white", "purple"]
-            print()
-            print("You chose 'Colors'")
-        elif self.user_choose == 3:
-            self.list_words = ["moroni", "alma",
-                               "mosiah", "jacob", "nephi", "enos"]
-            print()
-            print("You chose 'Book of Mormon Characters'")
+        self.successful_choice = False
+        while self.successful_choice == False:
+            try:
+                self.user_choose = int(input("Select a topic (1, 2, or 3): "))
+                self.successful_choice = True
+                if self.user_choose == 1:
+                    self.list_words = ["cat", "dog",
+                                    "parrot", "tucan", "tiger", "horse"]
+                    print()
+                    print("You chose 'Animals'")
+                elif self.user_choose == 2:
+                    self.list_words = ["red", "orange",
+                                    "blue", "black", "white", "purple"]
+                    print()
+                    print("You chose 'Colors'")
+                elif self.user_choose == 3:
+                    self.list_words = ["moroni", "alma",
+                                    "mosiah", "jacob", "nephi", "enos"]
+                    print()
+                    print("You chose 'Book of Mormon Characters'")
+                else:
+                    print("Try again.")
+                    self.successful_choice = False
+            except ValueError:
+                print("Try again.")
         return self.list_words
 
     def get_random_word(self):
